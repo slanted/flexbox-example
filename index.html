@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>flexbox</title>
+</head>
+<style>
+    .container {
+        min-height: 100vh;
+        display:flex;
+        flex-direction: column;
+    }
+
+    .row {
+        display:flex;
+    }
+
+    .col {
+        background-color: black;
+        color: white;
+        padding: .6em;
+        margin: .6em;
+        flex:1;
+    }
+
+    main {
+        display:flex;
+        flex:1;
+    }
+
+    main .row {
+        flex:1;
+    }
+
+    main .row .col:nth-child(2) {
+        flex: 3;
+    }
+
+    @media screen and (max-width:640px) {
+        main .row {
+            display: flex;
+            flex-direction: column;
+        }
+
+        main .row .col:nth-child(1) {
+            flex: none;
+        }
+
+        main .row .col:nth-child(2) {
+            flex-grow: 1;
+        }
+        main .row .col:nth-child(3) {
+            flex: none;
+        }
+    }
+</style>
+<body>
+<div class="container">
+    <header>
+        <div class="row">
+            <div class="col">
+                Configuration Manager
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <div class="row">
+            <div class="col left">
+                Left column
+            </div>
+            <div class="col">
+                Middle column<br>
+            </div>
+            <div class="col right">
+                Right column
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="row">
+            <div class="col">
+                Footer links
+            </div>
+        </div>
+    </footer>
+</div>
+</body>
+</html>
